@@ -9,15 +9,28 @@
 </head>
 
 <body>
-    <div class="common__block center">
+    <form class="common__block center">
         <h1 class="common__block_text">Выбери сложность</h1>
         <div class="common__block_options">
-            <div class="common__block_item common__block_item-first">1</div>
-            <div class="common__block_item common__block_item-second">2</div>
-            <div class="common__block_item common__block_item-thied">3</div>
+
+            <div class="common__block_item common__block_item-first">
+                <input class="common__block_input" id="1" name="item" value="1" type="radio">
+                <label for="1">1</label>
+            </div>
+
+            <div class="common__block_item common__block_item-second">
+                <input class="common__block_input" id="2" name="item" value="2" type="radio">
+                <label for="2">2</label>
+            </div>
+
+            <div class="common__block_item common__block_item-third">
+                <input class="common__block_input" id="3" name="item" value="3" type="radio">
+                <label for="3">3</label>
+            </div>
+
         </div>
-        <button class="common__block_options-button">Старт</button>
-    </div>
+        <button type="submit" class="common__block_options-button">Старт</button>
+    </form>
 </body>
 
 </html>
