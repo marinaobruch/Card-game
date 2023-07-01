@@ -49,6 +49,10 @@ body {
     margin-bottom: 67px;
 }
 
+.select_option {
+    border-color: aqua;
+}
+
 .common__block_item {
     width: 100px;
     height: 100px;

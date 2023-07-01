@@ -37,6 +37,7 @@ const renderGame = () => {
 
     const levelForm = document.querySelector(".options-form");
     const startButton = document.querySelector(".start-button");
+    const itemOfLevel = document.querySelector(".common__block_item");
 
     function checkIsLevel() {
         levelForm.addEventListener('change', (event) => {
@@ -54,11 +55,11 @@ const renderGame = () => {
             const level = levelForm.querySelector('input[type="radio"]:checked').value;
 
             if (level === "1") {
-                levelPage.innerHTML = `level 1`;
+                levelPage.innerHTML = 'level 1';
             } else if (level === "2") {
-                levelPage.innerHTML = `level 2`;
+                levelPage.innerHTML = 'level 2';
             } else {
-                levelPage.innerHTML = `level 3`;
+                levelPage.innerHTML = 'level 3';
             }
 
         })
