@@ -29,7 +29,7 @@ const renderGame = () => {
             </label>
 
         </div>
-        <button type="submit" class="common__block_options-button start-button">Старт</button>
+        <button type="submit" class="common__block_options-button start-button" disabled>Старт</button>
         </form>
         `
 
@@ -38,13 +38,24 @@ const renderGame = () => {
     const levelForm = document.querySelector(".options-form");
     const startButton = document.querySelector(".start-button");
 
+    function checkIsLevel() {
+        levelForm.addEventListener('change', (event) => {
+            if (event.target.matches('input[type="radio"]')) {
+                startButton.disabled = false;
+            }
+        })
+    }
+
+    checkIsLevel();
+
+
     function choiseLevel() {
         startButton.addEventListener('click', () => {
             const level = levelForm.querySelector('input[type="radio"]:checked').value;
 
-            if (level === 1) {
+            if (level === "1") {
                 levelPage.innerHTML = `level 1`;
-            } else if (level === 2) {
+            } else if (level === "2") {
                 levelPage.innerHTML = `level 2`;
             } else {
                 levelPage.innerHTML = `level 3`;
