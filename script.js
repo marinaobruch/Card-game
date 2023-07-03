@@ -37,7 +37,18 @@ const renderGame = () => {
 
     const levelForm = document.querySelector(".options-form");
     const startButton = document.querySelector(".start-button");
-    const itemOfLevel = document.querySelector(".common__block_item");
+
+
+    const buttonsDifficultyLevel = document.querySelectorAll(".common__block_item");
+    for (const button of buttonsDifficultyLevel) {
+        button.addEventListener('click', function () {
+            for (const button of buttonsDifficultyLevel) {
+                button.classList.remove('select-border');
+            }
+            this.classList.add('select-border');
+        });
+
+    }
 
     function checkIsLevel() {
         levelForm.addEventListener('change', (event) => {
