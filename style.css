@@ -86,8 +86,6 @@ body {
     margin-bottom: 64px;
 }
 
-/* second screen */
-
 .header {
     margin-top: 52px;
     margin-bottom: 46px;
@@ -96,6 +94,12 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 16px;
+}
+
+.game-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
 }
 
 .timer-count {

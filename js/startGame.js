@@ -1,29 +1,28 @@
 import { createGameCard } from "./gameCard.js";
 import { createGameMenu } from "./gameMenu.js";
 import { createCardsArray, dublicateArray, shuffle } from "./utils.js";
+export const headerGame = document.querySelector(".header");
 
 export const startGame = (initLevel) => {
     let firstCard = null;
     let secondCard = null;
     let clickable = true;
 
-    const headerGame = document.querySelector("header");
-    const gameSection = document.querySelector(".game-section__container");
-
     const restartButton = document.createElement("button");
     restartButton.textContent = "Начать заново";
     restartButton.classList.add("restart-btn");
-
     const timer = document.createElement("div");
     timer.textContent = "00.00";
     timer.classList.add("timer-count");
 
+    const gameSection = document.querySelector(".game-section__container");
     const gameTable = document.createElement("div");
 
     const initCards = createCardsArray(initLevel);
     const dublicCards = dublicateArray(initCards);
 
     gameSection.innerHTML = "";
+    headerGame.innerHTML = "";
 
     gameTable.classList.add("game-table");
 
@@ -40,6 +39,7 @@ export const startGame = (initLevel) => {
 
     restartButton.addEventListener("click", createGameMenu);
 
+    // Сравнение карт
     cards.forEach((card, index) =>
         card.addEventListener("click", () => {
             if (clickable === true && !card.classList.contains("flip")) {

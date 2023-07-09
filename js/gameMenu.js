@@ -1,8 +1,10 @@
-import { startGame } from "./startGame.js";
+import { startGame, headerGame } from "./startGame.js";
 
 const levelPage = document.querySelector(".game-section__container");
 
 export const createGameMenu = () => {
+    headerGame.innerHTML = "";
+
     const renderLevelPage = `
         <form class="common-block center">
             <h1 class="common-text">Выбери сложность</h1>
