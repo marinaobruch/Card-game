@@ -1,7 +1,6 @@
-const levelPage = document.querySelector(".level");
+const levelPage = document.querySelector('.level')
 
 const renderGame = () => {
-
     const renderLevelPage = `
         <form class="common__block center">
         <h1 class="common__block_text">Выбери сложность</h1>
@@ -33,50 +32,48 @@ const renderGame = () => {
         </form>
         `
 
-    levelPage.innerHTML = renderLevelPage;
+    levelPage.innerHTML = renderLevelPage
 
-    const levelForm = document.querySelector(".options-form");
-    const startButton = document.querySelector(".start-button");
+    const levelForm = document.querySelector('.options-form')
+    const startButton = document.querySelector('.start-button')
 
-
-    const buttonsDifficultyLevel = document.querySelectorAll(".common__block_item");
+    const buttonsDifficultyLevel = document.querySelectorAll(
+        '.common__block_item'
+    )
     for (const button of buttonsDifficultyLevel) {
         button.addEventListener('click', function () {
             for (const button of buttonsDifficultyLevel) {
-                button.classList.remove('select-border');
+                button.classList.remove('select-border')
             }
-            this.classList.add('select-border');
-        });
-
+            this.classList.add('select-border')
+        })
     }
 
     function checkIsLevel() {
         levelForm.addEventListener('change', (event) => {
             if (event.target.matches('input[type="radio"]')) {
-                startButton.disabled = false;
+                startButton.disabled = false
             }
         })
     }
-
-    checkIsLevel();
-
+    checkIsLevel()
 
     function choiseLevel() {
         startButton.addEventListener('click', () => {
-            const level = levelForm.querySelector('input[type="radio"]:checked').value;
+            const level = levelForm.querySelector(
+                'input[type="radio"]:checked'
+            ).value
 
-            if (level === "1") {
-                levelPage.innerHTML = 'level 1';
-            } else if (level === "2") {
-                levelPage.innerHTML = 'level 2';
+            if (level === '1') {
+                levelPage.innerHTML = 'level 1'
+            } else if (level === '2') {
+                levelPage.innerHTML = 'level 2'
             } else {
-                levelPage.innerHTML = 'level 3';
+                levelPage.innerHTML = 'level 3'
             }
-
         })
     }
-    choiseLevel();
-
+    choiseLevel()
 }
 
-renderGame();
+renderGame()
