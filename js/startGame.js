@@ -1,4 +1,5 @@
 import { createGameCard } from "./gameCard.js";
+import { createGameMenu } from "./gameMenu.js";
 import { createCardsArray, dublicateArray, shuffle } from "./utils.js";
 
 export const startGame = (initLevel) => {
@@ -10,11 +11,11 @@ export const startGame = (initLevel) => {
     const gameTable = document.createElement("div");
     const initCards = createCardsArray(initLevel);
     const dublicCards = dublicateArray(initCards);
-    const restartButton = document.createComment("button");
+    const restartButton = document.createElement("button");
 
     gameSection.innerHTML = "";
-
     restartButton.textContent = "Начать заново";
+    restartButton.classList.add("restart-btn");
     gameTable.classList.add("game-table");
 
     shuffle(dublicCards);
@@ -27,12 +28,11 @@ export const startGame = (initLevel) => {
 
     const cards = document.querySelectorAll(".game-card");
 
+    restartButton.addEventListener("click", createGameMenu);
+
     cards.forEach((card, index) =>
         card.addEventListener("click", () => {
-            if (
-                clickable === true &&
-                !card.classList.contains("successfully")
-            ) {
+            if (clickable === true && !card.classList.contains("flip")) {
                 card.classList.add("flip");
 
                 if (firstCard === null) {
