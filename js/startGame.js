@@ -66,24 +66,25 @@ export const startGame = (initLevel) => {
                         cards[firstCard].firstElementChild.src ===
                         cards[secondCard].firstElementChild.src
                     ) {
-                        cards[firstCard].classList.add("successfully");
-                        cards[secondCard].classList.add("successfully");
+                        setTimeout(() => {
+                            cards[firstCard].classList.add("successfully");
+                            cards[secondCard].classList.add("successfully");
 
-                        firstCard = null;
-                        secondCard = null;
-                        clickable = true;
+                            firstCard = null;
+                            secondCard = null;
+                            clickable = true;
+                        }, 500);
+                    } else {
+                        setTimeout(() => {
+                            cards[firstCard].classList.remove("flip");
+                            cards[secondCard].classList.remove("flip");
 
-                        // alert("Ты угалал!");
+                            firstCard = null;
+                            secondCard = null;
+                            clickable = true;
+                        }, 500);
                     }
                 }
-            } else {
-                // alert("Попробуй еще раз!");
-                cards[firstCard].classList.remove("flip");
-                cards[secondCard].classList.remove("flip");
-
-                firstCard = null;
-                secondCard = null;
-                clickable = true;
             }
         })
     );
