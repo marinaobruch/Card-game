@@ -124,6 +124,60 @@ body {
     gap: 16px;
 }
 
+.back-card {
+    background-image: url("img/back.jpg");
+}
+
+.game-table {
+    max-width: 900px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.game-card {
+    width: 95px;
+    height: 133px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    background-image: url("img/back.jpg");
+    border-radius: 5px;
+    transition: all 0.2s linear;
+    margin: 1%;
+}
+
+.game-card i {
+    font-size: 40px;
+    display: none;
+}
+
+.game-card i + i {
+    display: block;
+}
+
+.game-card.flip {
+    background: #5dc6ff !important;
+    transform: perspective(100px) rotateY(180deg);
+}
+
+.game-card.flip i {
+    display: block;
+}
+
+.game-card.flip i + i {
+    display: none;
+}
+
+.game-card.successfully {
+    background: #76db82 !important;
+}
+
+.game-card:hover {
+    background: #d1d1c0;
+}
+
 /* шрифт */
 @font-face {
     font-family: stratosskyeng-semilight;
