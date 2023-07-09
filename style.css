@@ -104,7 +104,7 @@ body {
     color: #fff;
 }
 
-.start-again {
+.restart-button {
     width: 246px;
     height: 48px;
     font-family: stratosskyeng-semilight;
@@ -127,7 +127,7 @@ body {
 /* шрифт */
 @font-face {
     font-family: stratosskyeng-semilight;
-    src: url('../fonts/Desktop_fonts/stratosskyeng-semilight.otf');
+    src: url("../fonts/Desktop_fonts/stratosskyeng-semilight.otf");
     font-style: normal;
     font-weight: normal;
 }

@@ -1,8 +1,8 @@
-import { startGame } from "./js/startGame.js";
+import { startGame } from "./startGame.js";
 
 const levelPage = document.querySelector(".game-section__container");
 
-const renderGame = () => {
+export const createGameMenu = () => {
     const renderLevelPage = `
         <form class="common-block center">
             <h1 class="common-text">Выбери сложность</h1>
@@ -67,19 +67,8 @@ const renderGame = () => {
             ).value;
 
             console.log(initLevel);
-
-            // if (initLevel === '1') {
-            //     levelPage.innerHTML = 'level 1'
-            // } else if (initLevel === '2') {
-            //     levelPage.innerHTML = 'level 2'
-            // } else {
-            //     levelPage.innerHTML = 'level 3'
-            // }
-
             startGame(initLevel);
         });
     }
     choiseLevel();
 };
-
-renderGame();
