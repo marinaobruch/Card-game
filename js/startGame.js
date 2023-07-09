@@ -37,12 +37,10 @@ export const startGame = (initLevel) => {
 
                 if (firstCard === null) {
                     firstCard = index;
-                    console.log(`FC index = ${index}`);
                 } else {
                     if (index !== firstCard) {
                         secondCard = index;
                         clickable = false;
-                        console.log(`SC index = ${index}`);
                     }
                 }
 
@@ -50,31 +48,26 @@ export const startGame = (initLevel) => {
                     firstCard !== null &&
                     secondCard !== null &&
                     firstCard !== secondCard
-                )
-                    setTimeout(() => {
-                        if (
-                            cards[firstCard].firstElementChild.className ===
-                            cards[secondCard].firstElementChild.className
-                        ) {
-                            alert("Ты угадал!");
+                ) {
+                    if (
+                        cards[firstCard].firstElementChild.src ===
+                        cards[secondCard].firstElementChild.src
+                    ) {
+                        firstCard = null;
+                        secondCard = null;
+                        clickable = true;
 
-                            let firstCard = null;
-                            let secondCard = null;
-                            let clickable = true;
-                        }
-                    }, 500);
-            } else {
-                setTimeout(() => {
-                    {
-                        alert("Попробуй еще раз!");
-                        cards[firstCard].classList.remove("flip");
-                        cards[secondCard].classList.remove("flip");
-
-                        let firstCard = null;
-                        let secondCard = null;
-                        let clickable = true;
+                        alert("Ты угалал!");
                     }
-                }, 500);
+                }
+            } else {
+                alert("Попробуй еще раз!");
+                cards[firstCard].classList.remove("flip");
+                cards[secondCard].classList.remove("flip");
+
+                firstCard = null;
+                secondCard = null;
+                clickable = true;
             }
         })
     );
