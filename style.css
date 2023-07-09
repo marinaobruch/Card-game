@@ -88,7 +88,7 @@ body {
 
 /* second screen */
 
-.header-game {
+.header {
     margin-top: 52px;
     margin-bottom: 46px;
     display: flex;
@@ -98,7 +98,7 @@ body {
     padding: 0 16px;
 }
 
-.timer {
+.timer-count {
     font-weight: 400;
     font-size: 64px;
     color: #fff;
@@ -123,10 +123,6 @@ body {
     grid-template-columns: repeat(9, 1fr);
     gap: 16px;
 }
-
-/* .back-card {
-    background-image: url("img/back.jpg");
-} */
 
 .game-table {
     max-width: 900px;

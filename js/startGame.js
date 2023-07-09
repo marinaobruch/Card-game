@@ -7,15 +7,24 @@ export const startGame = (initLevel) => {
     let secondCard = null;
     let clickable = true;
 
+    const headerGame = document.querySelector("header");
     const gameSection = document.querySelector(".game-section__container");
-    const gameTable = document.createElement("div");
-    const initCards = createCardsArray(initLevel);
-    const dublicCards = dublicateArray(initCards);
-    const restartButton = document.createElement("button");
 
-    gameSection.innerHTML = "";
+    const restartButton = document.createElement("button");
     restartButton.textContent = "Начать заново";
     restartButton.classList.add("restart-btn");
+
+    const timer = document.createElement("div");
+    timer.textContent = "00.00";
+    timer.classList.add("timer-count");
+
+    const gameTable = document.createElement("div");
+
+    const initCards = createCardsArray(initLevel);
+    const dublicCards = dublicateArray(initCards);
+
+    gameSection.innerHTML = "";
+
     gameTable.classList.add("game-table");
 
     shuffle(dublicCards);
@@ -24,7 +33,8 @@ export const startGame = (initLevel) => {
         gameTable.append(createGameCard("img/back.jpg", icon))
     );
 
-    gameSection.append(gameTable, restartButton);
+    headerGame.append(timer, restartButton);
+    gameSection.append(gameTable);
 
     const cards = document.querySelectorAll(".game-card");
 
