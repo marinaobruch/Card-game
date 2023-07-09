@@ -19,7 +19,9 @@ export const startGame = (initLevel) => {
 
     shuffle(dublicCards);
 
-    dublicCards.forEach((icon) => gameTable.append(createGameCard(icon)));
+    dublicCards.forEach((icon) =>
+        gameTable.append(createGameCard("img/back.jpg", icon))
+    );
 
     gameSection.append(gameTable, restartButton);
 
@@ -32,6 +34,47 @@ export const startGame = (initLevel) => {
                 !card.classList.contains("successfully")
             ) {
                 card.classList.add("flip");
+
+                if (firstCard === null) {
+                    firstCard = index;
+                    console.log(`FC index = ${index}`);
+                } else {
+                    if (index !== firstCard) {
+                        secondCard = index;
+                        clickable = false;
+                        console.log(`SC index = ${index}`);
+                    }
+                }
+
+                if (
+                    firstCard !== null &&
+                    secondCard !== null &&
+                    firstCard !== secondCard
+                )
+                    setTimeout(() => {
+                        if (
+                            cards[firstCard].firstElementChild.className ===
+                            cards[secondCard].firstElementChild.className
+                        ) {
+                            alert("Ты угадал!");
+
+                            let firstCard = null;
+                            let secondCard = null;
+                            let clickable = true;
+                        }
+                    }, 500);
+            } else {
+                setTimeout(() => {
+                    {
+                        alert("Попробуй еще раз!");
+                        cards[firstCard].classList.remove("flip");
+                        cards[secondCard].classList.remove("flip");
+
+                        let firstCard = null;
+                        let secondCard = null;
+                        let clickable = true;
+                    }
+                }, 500);
             }
         })
     );

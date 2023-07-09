@@ -1,13 +1,14 @@
-export const createGameCard = (cardEl) => {
+export const createGameCard = (defaultIcon, flippedCardIcon) => {
     const card = document.createElement("div");
     card.classList.add("game-card");
 
-    const notFlippedCardEl = document.createElement("i");
-    const flippedCardEl = document.createElement("i");
-    // flippedCardEl.textContent = `${cardEl}`;
-    flippedCardEl.classList.add(`${cardEl}`);
+    const notFlippedCardI = document.createElement("img");
+    const flippedCardI = document.createElement("img");
 
-    card.append(flippedCardEl, notFlippedCardEl);
+    notFlippedCardI.setAttribute("src", `${defaultIcon}`);
+    flippedCardI.setAttribute("src", `${flippedCardIcon}`);
+
+    card.append(flippedCardI, notFlippedCardI);
 
     return card;
 };
