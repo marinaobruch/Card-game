@@ -148,7 +148,6 @@ body {
 }
 
 .game-card img {
-    font-size: 40px;
     display: none;
 }
 
@@ -157,7 +156,6 @@ body {
 }
 
 .game-card.flip {
-    background: #c3f5fe !important;
     transform: perspective(100px) rotateY(10deg);
 }
 
@@ -169,12 +167,8 @@ body {
     display: none;
 }
 
-.game-card.successfully {
-    background: #76db82 !important;
-}
-
-.game-card:hover {
-    background: #d1d1c0;
+.successfully {
+    border: 4px solid #7ac100;
 }
 
 /* шрифт */

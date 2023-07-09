@@ -42,7 +42,10 @@ export const startGame = (initLevel) => {
     // Сравнение карт
     cards.forEach((card, index) =>
         card.addEventListener("click", () => {
-            if (clickable === true && !card.classList.contains("flip")) {
+            if (
+                clickable === true &&
+                !card.classList.contains("successfully")
+            ) {
                 card.classList.add("flip");
 
                 if (firstCard === null) {
@@ -63,15 +66,18 @@ export const startGame = (initLevel) => {
                         cards[firstCard].firstElementChild.src ===
                         cards[secondCard].firstElementChild.src
                     ) {
+                        cards[firstCard].classList.add("successfully");
+                        cards[secondCard].classList.add("successfully");
+
                         firstCard = null;
                         secondCard = null;
                         clickable = true;
 
-                        alert("Ты угалал!");
+                        // alert("Ты угалал!");
                     }
                 }
             } else {
-                alert("Попробуй еще раз!");
+                // alert("Попробуй еще раз!");
                 cards[firstCard].classList.remove("flip");
                 cards[secondCard].classList.remove("flip");
 
