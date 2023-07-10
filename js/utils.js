@@ -1,3 +1,4 @@
+// Перемешивание карт
 export const shuffle = (array) => {
     let currentIndex = array.length,
         randomIndex;
@@ -15,6 +16,7 @@ export const shuffle = (array) => {
     return array;
 };
 
+// Дубликаты карт
 export const dublicateArray = (array) =>
     array.reduce((res, current) => res.concat([current, current]), []);
 
@@ -34,7 +36,7 @@ export const createCardsArray = (initLevel) => {
         "img/8_bubi.png",
         "img/9_bubi.png",
         "img/10_bubi.png",
-        "img/jack_bu.png",
+        "img/jack_bubi.png",
         "img/queen_bubi.png",
         "img/king_bubi.png",
         "img/ace_bubi.png",
@@ -58,14 +60,13 @@ export const createCardsArray = (initLevel) => {
         "img/ace_spades.png",
     ];
 
-    // пофиксить, чтобы забирались разные карты (возможно рандом сделать сначала)
     switch (initLevel) {
         case "1":
-            return cardsIcons.slice(0, 3);
+            return shuffle(cardsIcons).slice(0, 3);
         case "2":
-            return cardsIcons.slice(0, 6);
+            return shuffle(cardsIcons).slice(0, 6);
         case "3":
-            return cardsIcons.slice(0, 9);
+            return shuffle(cardsIcons).slice(0, 9);
         default:
             break;
     }

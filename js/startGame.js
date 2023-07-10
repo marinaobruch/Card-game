@@ -49,7 +49,7 @@ export const startGame = (initLevel) => {
             setTimeout(() => {
                 cards.forEach((card) => card.classList.remove("flip"));
                 showCards.classList.add("disabled");
-            }, 1000);
+            }, 5000);
             cards.forEach((card) => card.classList.add("flip"));
             countShowCards = true;
         }
