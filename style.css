@@ -150,7 +150,7 @@ body {
 }
 
 .game-table {
-    max-width: 900px;
+    max-width: 910px;
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -189,7 +189,7 @@ body {
 }
 
 .successfully {
-    border: 4px solid #7ac100;
+    border: 1px solid #7ac100;
 }
 
 /* шрифт */
