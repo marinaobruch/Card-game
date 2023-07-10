@@ -2,6 +2,7 @@ import { createGameCard } from "./gameCard.js";
 import { createGameMenu } from "./gameMenu.js";
 import { createCardsArray, dublicateArray, shuffle } from "./utils.js";
 export const headerGame = document.querySelector(".header");
+export const resultGame = document.querySelector(".result");
 
 export const startGame = (initLevel) => {
     let firstCard = null;
@@ -29,6 +30,7 @@ export const startGame = (initLevel) => {
 
     gameSection.innerHTML = "";
     headerGame.innerHTML = "";
+    resultGame.innerHTML = "";
     showCards.classList.remove("disabled");
 
     shuffle(dublicCards);
@@ -49,7 +51,7 @@ export const startGame = (initLevel) => {
             setTimeout(() => {
                 cards.forEach((card) => card.classList.remove("flip"));
                 showCards.classList.add("disabled");
-            }, 5000);
+            }, 1000);
             cards.forEach((card) => card.classList.add("flip"));
             countShowCards = true;
         }
@@ -101,6 +103,25 @@ export const startGame = (initLevel) => {
                         }, 500);
                     }
                 }
+            }
+            if (
+                Array.from(cards).every((card) =>
+                    card.className.includes("flip")
+                )
+            ) {
+                const imgResult = document.createElement("img");
+                imgResult.setAttribute("src", "static/win.png");
+                const headerResult = document.createElement("h3");
+                headerResult.textContent = "Вы выиграли!";
+                timer;
+                restartButton;
+
+                resultGame.append(
+                    imgResult,
+                    headerResult,
+                    timer,
+                    restartButton
+                );
             }
         })
     );
