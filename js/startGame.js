@@ -7,6 +7,7 @@ export const startGame = (initLevel) => {
     let firstCard = null;
     let secondCard = null;
     let clickable = true;
+    let countShowCards = false;
 
     const restartButton = document.createElement("button");
     restartButton.textContent = "Начать заново";
@@ -17,14 +18,18 @@ export const startGame = (initLevel) => {
 
     const gameSection = document.querySelector(".game-section__container");
     const gameTable = document.createElement("div");
+    gameTable.classList.add("game-table");
+
+    const showCards = document.createElement("button");
+    showCards.textContent = "Показать карты";
+    showCards.classList.add("show-btn");
 
     const initCards = createCardsArray(initLevel);
     const dublicCards = dublicateArray(initCards);
 
     gameSection.innerHTML = "";
     headerGame.innerHTML = "";
-
-    gameTable.classList.add("game-table");
+    showCards.classList.remove("disabled");
 
     shuffle(dublicCards);
 
@@ -33,11 +38,22 @@ export const startGame = (initLevel) => {
     );
 
     headerGame.append(timer, restartButton);
-    gameSection.append(gameTable);
+    gameSection.append(gameTable, showCards);
 
     const cards = document.querySelectorAll(".game-card");
 
     restartButton.addEventListener("click", createGameMenu);
+
+    showCards.addEventListener("click", () => {
+        if (countShowCards === false) {
+            setTimeout(() => {
+                cards.forEach((card) => card.classList.remove("flip"));
+                showCards.classList.add("disabled");
+            }, 1000);
+            cards.forEach((card) => card.classList.add("flip"));
+            countShowCards = true;
+        }
+    });
 
     // Сравнение карт
     cards.forEach((card, index) =>

@@ -98,8 +98,11 @@ body {
 
 .game-container {
     display: flex;
-    flex-flow: row wrap;
     justify-content: center;
+    flex-flow: column wrap;
+    align-content: center;
+    align-items: center;
+    gap: 32px;
 }
 
 .timer-count {
@@ -119,6 +122,24 @@ body {
     padding: 10px 36px;
     border: none;
     border-radius: 12px;
+}
+
+.show-btn {
+    width: 200px;
+    height: 80px;
+    font-family: stratosskyeng-semilight;
+    font-weight: 40px;
+    font-size: 24px;
+    color: #fff;
+    background-color: #7ac100;
+    padding: 10px 36px;
+    border: none;
+    border-radius: 12px;
+}
+
+.disabled {
+    border-color: #bdbdbd;
+    background-color: #bdbdbd;
 }
 
 .cards {
