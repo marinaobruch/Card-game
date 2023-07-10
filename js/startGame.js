@@ -31,8 +31,10 @@ export const startGame = (initLevel) => {
     headerGame.innerHTML = "";
     showCards.classList.remove("disabled");
 
+    shuffle(dublicCards);
+
     dublicCards.forEach((icon) =>
-        gameTable.append(createGameCard("img/back.jpg", icon))
+        gameTable.append(createGameCard("static/back.jpg", icon))
     );
 
     headerGame.append(timer, restartButton);
