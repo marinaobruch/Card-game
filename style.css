@@ -1,3 +1,11 @@
+/* шрифт */
+@font-face {
+    font-family: stratosskyeng-semilight;
+    src: url("../static/fonts/stratosskyeng-semilight.otf");
+    font-style: normal;
+    font-weight: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -232,12 +240,4 @@ body {
     font-size: 24px;
     font-weight: 200;
     text-align: center;
-}
-
-/* шрифт */
-@font-face {
-    font-family: stratosskyeng-semilight;
-    src: url("../fonts/Desktop_fonts/stratosskyeng-semilight.otf");
-    font-style: normal;
-    font-weight: normal;
 }

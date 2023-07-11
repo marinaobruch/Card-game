@@ -4,12 +4,11 @@ const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
-const mode =
-    process.env.NODE_ENV === "production" ? "production" : "development";
+const isProduction = process.env.NODE_ENV;
 
 module.exports = {
-    entry: "./js/script.js",
-    mode,
+    entry: "./script.js",
+    mode: isProduction ? "production" : "development",
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "bundle.js",
@@ -42,8 +41,5 @@ module.exports = {
     optimization: {
         minimizer: ["...", new CssMinimizerPlugin()],
     },
-    devtool:
-        process.env.NODE_ENV === "production"
-            ? "hidden-source-map"
-            : "source-map",
+    devtool: isProduction ? "hidden-source-map" : "source-map",
 };

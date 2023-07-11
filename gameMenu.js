@@ -5,6 +5,7 @@ const levelPage = document.querySelector(".game-section__container");
 export const createGameMenu = () => {
     headerGame.innerHTML = "";
     resultGame.innerHTML = "";
+
     resultGame.classList.remove("result");
     gameScreen.classList.remove("back-result");
 
