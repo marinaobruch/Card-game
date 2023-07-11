@@ -116,6 +116,7 @@ export const startGame = (initLevel) => {
                             clickable = true;
                         }, 500);
                     } else {
+                        clearInterval(Interval);
                         setTimeout(() => {
                             imgResult.setAttribute("src", "static/lose.png");
                             headerResult.textContent = "Вы проиграли!";
