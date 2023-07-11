@@ -3,6 +3,7 @@ import { createGameMenu } from "./gameMenu.js";
 import { createCardsArray, dublicateArray, shuffle } from "./utils.js";
 export const headerGame = document.querySelector(".header");
 export const resultGame = document.querySelector(".result");
+export const gameScreen = document.querySelector(".common");
 
 export const startGame = (initLevel) => {
     let firstCard = null;
@@ -109,19 +110,26 @@ export const startGame = (initLevel) => {
                     card.className.includes("flip")
                 )
             ) {
-                const imgResult = document.createElement("img");
-                imgResult.setAttribute("src", "static/win.png");
-                const headerResult = document.createElement("h3");
-                headerResult.textContent = "Вы выиграли!";
-                timer;
-                restartButton;
+                setTimeout(() => {
+                    const imgResult = document.createElement("img");
+                    imgResult.setAttribute("src", "static/win.png");
+                    const headerResult = document.createElement("h3");
+                    headerResult.textContent = "Вы выиграли!";
+                    const timeResult = document.createElement("h3");
+                    timeResult.textContent = "Затраченное время!";
+                    timer;
+                    restartButton;
 
-                resultGame.append(
-                    imgResult,
-                    headerResult,
-                    timer,
-                    restartButton
-                );
+                    resultGame.classList.add("result");
+                    resultGame.append(
+                        imgResult,
+                        headerResult,
+                        timeResult,
+                        timer,
+                        restartButton
+                    );
+                    gameScreen.classList.add("back-result");
+                }, 500);
             }
         })
     );

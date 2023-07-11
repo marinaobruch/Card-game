@@ -1,10 +1,12 @@
-import { startGame, headerGame, resultGame } from "./startGame.js";
+import { startGame, headerGame, resultGame, gameScreen } from "./startGame.js";
 
 const levelPage = document.querySelector(".game-section__container");
 
 export const createGameMenu = () => {
     headerGame.innerHTML = "";
     resultGame.innerHTML = "";
+    resultGame.classList.remove("result");
+    gameScreen.classList.remove("back-result");
 
     const renderLevelPage = `
         <form class="common-block center">
