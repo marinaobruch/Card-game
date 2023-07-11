@@ -119,7 +119,7 @@ export const startGame = (initLevel) => {
                             gameScreen.classList.add("back-result");
                         }, 500);
 
-                        // Это логика, если дальше можно продолжать игру
+                        // Это логика, если дальше можно продолжать игру (свернуто)
                         // setTimeout(() => {
                         //     cards[firstCard].classList.remove("flip");
                         //     cards[secondCard].classList.remove("flip");
