@@ -219,6 +219,21 @@ body {
     z-index: 1;
 }
 
+.win-text {
+    font-size: 40px;
+    font-weight: 200;
+    text-align: center;
+    color: #014b7e;
+    padding-top: 9px;
+    padding-bottom: 28px;
+}
+
+.time-left {
+    font-size: 24px;
+    font-weight: 200;
+    text-align: center;
+}
+
 /* шрифт */
 @font-face {
     font-family: stratosskyeng-semilight;

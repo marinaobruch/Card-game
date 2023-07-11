@@ -26,6 +26,15 @@ export const startGame = (initLevel) => {
     showCards.textContent = "Показать карты";
     showCards.classList.add("show-btn");
 
+    const imgResult = document.createElement("img");
+    imgResult.setAttribute("src", "static/win.png");
+    const headerResult = document.createElement("h3");
+    headerResult.textContent = "Вы выиграли!";
+    headerResult.classList.add("win-text");
+    const timeResult = document.createElement("h3");
+    timeResult.textContent = "Затраченное время!";
+    timeResult.classList.add("time-left");
+
     const initCards = createCardsArray(initLevel);
     const dublicCards = dublicateArray(initCards);
 
@@ -111,15 +120,6 @@ export const startGame = (initLevel) => {
                 )
             ) {
                 setTimeout(() => {
-                    const imgResult = document.createElement("img");
-                    imgResult.setAttribute("src", "static/win.png");
-                    const headerResult = document.createElement("h3");
-                    headerResult.textContent = "Вы выиграли!";
-                    const timeResult = document.createElement("h3");
-                    timeResult.textContent = "Затраченное время!";
-                    timer;
-                    restartButton;
-
                     resultGame.classList.add("result");
                     resultGame.append(
                         imgResult,
