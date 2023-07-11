@@ -10,13 +10,24 @@ export const startGame = (initLevel) => {
     let secondCard = null;
     let clickable = true;
     let countShowCards = false;
+    let Interval;
+    let seconds = 0;
+    let tens = 0;
 
     const restartButton = document.createElement("button");
     restartButton.textContent = "Начать заново";
     restartButton.classList.add("restart-btn");
+    const appendSeconds = document.createElement("span"); // timer
+    const appendTens = document.createElement("span"); // timer
+    appendSeconds.textContent = "00";
+    appendTens.textContent = "00";
+    appendSeconds.classList.add("timer-count");
+    appendTens.classList.add("timer-count");
+    const dot = document.createElement("span");
+    dot.textContent = ".";
+    dot.classList.add("timer-count");
     const timer = document.createElement("div");
-    timer.textContent = "00.00";
-    timer.classList.add("timer-count");
+    timer.append(appendSeconds, dot, appendTens);
 
     const gameSection = document.querySelector(".game-section__container");
     const gameTable = document.createElement("div");
@@ -70,6 +81,8 @@ export const startGame = (initLevel) => {
     // Сравнение карт
     cards.forEach((card, index) =>
         card.addEventListener("click", () => {
+            clearInterval(Interval);
+            Interval = setInterval(startTimer, 10);
             if (
                 clickable === true &&
                 !card.classList.contains("successfully")
@@ -136,6 +149,7 @@ export const startGame = (initLevel) => {
                     card.className.includes("flip")
                 )
             ) {
+                clearInterval(Interval);
                 setTimeout(() => {
                     resultGame.classList.add("result");
                     resultGame.append(
@@ -150,4 +164,27 @@ export const startGame = (initLevel) => {
             }
         })
     );
+
+    function startTimer() {
+        tens++;
+
+        if (tens < 9) {
+            appendTens.innerHTML = "0" + tens;
+        }
+
+        if (tens > 9) {
+            appendTens.innerHTML = tens;
+        }
+
+        if (tens > 99) {
+            seconds++;
+            appendSeconds.innerHTML = "0" + seconds;
+            tens = 0;
+            appendTens.innerHTML = "0" + 0;
+        }
+
+        if (seconds > 9) {
+            appendSeconds.innerHTML = seconds;
+        }
+    }
 };
