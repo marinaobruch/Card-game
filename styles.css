@@ -116,6 +116,12 @@ body {
     color: #fff;
 }
 
+.timer-res {
+    font-weight: 400;
+    font-size: 64px;
+    color: #000;
+}
+
 .restart-btn {
     width: 246px;
     height: 48px;

@@ -118,6 +118,10 @@ export const startGame = (initLevel) => {
                     } else {
                         clearInterval(Interval);
                         setTimeout(() => {
+                            appendSeconds.classList.add("timer-res");
+                            appendTens.classList.add("timer-res");
+                            dot.classList.add("timer-res");
+
                             imgResult.setAttribute("src", "static/lose.png");
                             headerResult.textContent = "Вы проиграли!";
                             headerResult.classList.add("win-text");
@@ -152,6 +156,10 @@ export const startGame = (initLevel) => {
             ) {
                 clearInterval(Interval);
                 setTimeout(() => {
+                    appendSeconds.classList.add("timer-res");
+                    appendTens.classList.add("timer-res");
+                    dot.classList.add("timer-res");
+
                     resultGame.classList.add("result");
                     resultGame.append(
                         imgResult,
