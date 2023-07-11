@@ -1,7 +1,7 @@
 /* шрифт */
 @font-face {
     font-family: stratosskyeng-semilight;
-    src: url("../static/fonts/stratosskyeng-semilight.otf");
+    src: url("/static/fonts/stratosskyeng-semilight.otf");
     font-style: normal;
     font-weight: normal;
 }
