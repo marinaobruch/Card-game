@@ -20,13 +20,8 @@ body {
     font-family: stratosskyeng-semilight;
 }
 
-.center {
-    padding-left: calc(50% - 600px);
-    padding-right: calc(50% - 600px);
-}
-
 .common-block {
-    width: 460px;
+    max-width: 480px;
     background-color: #c3f5fe;
     margin-top: 158px;
     margin-right: 272px;
