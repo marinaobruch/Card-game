@@ -104,13 +104,30 @@ export const startGame = (initLevel) => {
                         }, 500);
                     } else {
                         setTimeout(() => {
-                            cards[firstCard].classList.remove("flip");
-                            cards[secondCard].classList.remove("flip");
+                            imgResult.setAttribute("src", "static/lose.png");
+                            headerResult.textContent = "Вы проиграли!";
+                            headerResult.classList.add("win-text");
 
-                            firstCard = null;
-                            secondCard = null;
-                            clickable = true;
+                            resultGame.classList.add("result");
+                            resultGame.append(
+                                imgResult,
+                                headerResult,
+                                timeResult,
+                                timer,
+                                restartButton
+                            );
+                            gameScreen.classList.add("back-result");
                         }, 500);
+
+                        // Это логика, если дальше можно продолжать игру
+                        // setTimeout(() => {
+                        //     cards[firstCard].classList.remove("flip");
+                        //     cards[secondCard].classList.remove("flip");
+
+                        //     firstCard = null;
+                        //     secondCard = null;
+                        //     clickable = true;
+                        // }, 500);
                     }
                 }
             }
