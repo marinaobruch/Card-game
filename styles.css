@@ -203,6 +203,11 @@ body {
     border: 1px solid #7ac100;
 }
 
+.res-container {
+    width: 100vw;
+    height: 100vh;
+}
+
 .result {
     height: 480px;
     width: 459px;
@@ -212,18 +217,16 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: 110px;
-    left: 110px;
     z-index: 9999;
 }
 
 .back-result {
+    width: 100vw;
+    height: 100vh;
     position: absolute;
-    top: 110px;
-    left: 110px;
-    color: #7ac100;
-    filter: opacity=50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     opacity: 0.5;
     z-index: 1;
 }

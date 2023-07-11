@@ -2,6 +2,7 @@ import { createGameCard } from "./gameCard.js";
 import { createGameMenu } from "./gameMenu.js";
 import { createCardsArray, dublicateArray, shuffle } from "./utils.js";
 export const headerGame = document.querySelector(".header");
+export const resultContainer = document.querySelector(".res-container");
 export const resultGame = document.querySelector(".result");
 export const gameScreen = document.querySelector(".common");
 
@@ -134,6 +135,8 @@ export const startGame = (initLevel) => {
                                 timer,
                                 restartButton
                             );
+                            resultContainer.classList.add("res-container");
+                            resultContainer.append(resultGame);
                             gameScreen.classList.add("back-result");
                         }, 500);
 
@@ -168,6 +171,8 @@ export const startGame = (initLevel) => {
                         timer,
                         restartButton
                     );
+                    resultContainer.classList.add("res-container");
+                    resultContainer.append(resultGame);
                     gameScreen.classList.add("back-result");
                 }, 500);
             }
