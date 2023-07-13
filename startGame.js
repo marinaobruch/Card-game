@@ -50,9 +50,10 @@ export const startGame = (initLevel) => {
     const initCards = createCardsArray(initLevel);
     const dublicCards = dublicateArray(initCards);
 
+    resultGame.innerHTML = "";
     gameSection.innerHTML = "";
     headerGame.innerHTML = "";
-    resultGame.innerHTML = "";
+
     showCards.classList.remove("disabled");
 
     shuffle(dublicCards);
