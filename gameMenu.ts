@@ -9,13 +9,20 @@ import {
 const levelPage = document.querySelector(".game-section__container");
 
 export const createGameMenu = () => {
-    headerGame.innerHTML = "";
-    resultGame.innerHTML = "";
-    resultContainer.innerHTML = "";
-
-    resultGame.classList.remove("result");
-    resultContainer.classList.remove("res-container");
-    gameScreen.classList.remove("back-result");
+    if (headerGame) {
+        headerGame.innerHTML = "";
+    }
+    if (resultGame) {
+        resultGame.innerHTML = "";
+        resultGame.classList.remove("result");
+    }
+    if (resultContainer) {
+        resultContainer.innerHTML = "";
+        resultContainer.classList.remove("res-container");
+    }
+    if (gameScreen) {
+        gameScreen.classList.remove("back-result");
+    }
 
     const renderLevelPage = `
         <form class="common-block center">
@@ -48,7 +55,9 @@ export const createGameMenu = () => {
         </form>
         `;
 
-    levelPage.innerHTML = renderLevelPage;
+    if (levelPage) {
+        levelPage.innerHTML = renderLevelPage;
+    }
 
     const levelForm = document.querySelector(".options-form");
     const startButton = document.querySelector(".start-button");
@@ -66,23 +75,29 @@ export const createGameMenu = () => {
 
     // Выключение кнопки до выбора уровня
     function checkIsLevel() {
-        levelForm.addEventListener("change", (event) => {
-            if (event.target.matches('input[type="radio"]')) {
-                startButton.disabled = false;
-            }
-        });
+        if (levelForm && startButton) {
+            levelForm.addEventListener("change", (event) => {
+                if (event.target.matches('input[type="radio"]')) {
+                    startButton.disabled = false;
+                }
+            });
+        }
     }
     checkIsLevel();
 
     function choiseLevel() {
-        startButton.addEventListener("click", () => {
-            const initLevel = levelForm.querySelector(
-                'input[type="radio"]:checked'
-            ).value;
+        if (startButton) {
+            startButton.addEventListener("click", () => {
+                if (levelForm) {
+                    const initLevel = levelForm.querySelector(
+                        'input[type="radio"]:checked'
+                    ).value;
 
-            console.log(initLevel);
-            startGame(initLevel);
-        });
+                    console.log(initLevel);
+                    startGame(initLevel);
+                }
+            });
+        }
     }
     choiseLevel();
 };

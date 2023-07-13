@@ -6,9 +6,9 @@ export const resultContainer = document.querySelector(".res-container");
 export const resultGame = document.querySelector(".result");
 export const gameScreen = document.querySelector(".common");
 
-export const startGame = (initLevel) => {
-    let firstCard = null;
-    let secondCard = null;
+export const startGame = (initLevel: string) => {
+    let firstCard: null | number = null;
+    let secondCard: null | number = null;
     let clickable = true;
     let countShowCards = false;
     let Interval;
@@ -50,9 +50,16 @@ export const startGame = (initLevel) => {
     const initCards = createCardsArray(initLevel);
     const dublicCards = dublicateArray(initCards);
 
-    gameSection.innerHTML = "";
-    headerGame.innerHTML = "";
-    resultGame.innerHTML = "";
+    if (gameSection) {
+        gameSection.innerHTML = "";
+    }
+    if (headerGame) {
+        headerGame.innerHTML = "";
+    }
+    if (resultGame) {
+        resultGame.innerHTML = "";
+    }
+
     showCards.classList.remove("disabled");
 
     shuffle(dublicCards);
@@ -61,8 +68,12 @@ export const startGame = (initLevel) => {
         gameTable.append(createGameCard("static/back.jpg", icon))
     );
 
-    headerGame.append(timer, restartButton);
-    gameSection.append(gameTable, showCards);
+    if (headerGame) {
+        headerGame.append(timer, restartButton);
+    }
+    if (gameSection) {
+        gameSection.append(gameTable, showCards);
+    }
 
     const cards = document.querySelectorAll(".game-card");
 
@@ -126,18 +137,23 @@ export const startGame = (initLevel) => {
                             imgResult.setAttribute("src", "static/lose.png");
                             headerResult.textContent = "Вы проиграли!";
                             headerResult.classList.add("win-text");
-
-                            resultGame.classList.add("result");
-                            resultGame.append(
-                                imgResult,
-                                headerResult,
-                                timeResult,
-                                timer,
-                                restartButton
-                            );
-                            resultContainer.classList.add("res-container");
-                            resultContainer.append(resultGame);
-                            gameScreen.classList.add("back-result");
+                            if (resultGame) {
+                                resultGame.classList.add("result");
+                                resultGame.append(
+                                    imgResult,
+                                    headerResult,
+                                    timeResult,
+                                    timer,
+                                    restartButton
+                                );
+                            }
+                            if (resultContainer && resultGame) {
+                                resultContainer.classList.add("res-container");
+                                resultContainer.append(resultGame);
+                            }
+                            if (gameScreen) {
+                                gameScreen.classList.add("back-result");
+                            }
                         }, 500);
 
                         // Это логика, если дальше можно продолжать игру (свернуто)
@@ -163,17 +179,23 @@ export const startGame = (initLevel) => {
                     appendTens.classList.add("timer-res");
                     dot.classList.add("timer-res");
 
-                    resultGame.classList.add("result");
-                    resultGame.append(
-                        imgResult,
-                        headerResult,
-                        timeResult,
-                        timer,
-                        restartButton
-                    );
-                    resultContainer.classList.add("res-container");
-                    resultContainer.append(resultGame);
-                    gameScreen.classList.add("back-result");
+                    if (resultGame) {
+                        resultGame.classList.add("result");
+                        resultGame.append(
+                            imgResult,
+                            headerResult,
+                            timeResult,
+                            timer,
+                            restartButton
+                        );
+                    }
+                    if (resultContainer && resultGame) {
+                        resultContainer.classList.add("res-container");
+                        resultContainer.append(resultGame);
+                    }
+                    if (gameScreen) {
+                        gameScreen.classList.add("back-result");
+                    }
                 }, 500);
             }
         })
