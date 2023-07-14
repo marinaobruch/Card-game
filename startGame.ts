@@ -11,7 +11,7 @@ export const startGame = (initLevel: string) => {
     let secondCard: null | number = null;
     let clickable = true;
     let countShowCards = false;
-    let Interval;
+    let Interval: number;
     let seconds = 0;
     let tens = 0;
 
@@ -64,7 +64,7 @@ export const startGame = (initLevel: string) => {
 
     shuffle(dublicCards);
 
-    dublicCards.forEach((icon) =>
+    dublicCards.forEach((icon: object | string) =>
         gameTable.append(createGameCard("static/back.jpg", icon))
     );
 
@@ -120,8 +120,10 @@ export const startGame = (initLevel: string) => {
                         cards[secondCard].firstElementChild.src
                     ) {
                         setTimeout(() => {
-                            cards[firstCard].classList.add("successfully");
-                            cards[secondCard].classList.add("successfully");
+                            if (firstCard && secondCard) {
+                                cards[firstCard].classList.add("successfully");
+                                cards[secondCard].classList.add("successfully");
+                            }
 
                             firstCard = null;
                             secondCard = null;
