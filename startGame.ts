@@ -11,7 +11,7 @@ export const startGame = (initLevel: string) => {
     let secondCard: null | number = null;
     let clickable = true;
     let countShowCards = false;
-    let Interval: number;
+    let Interval: number | any;
     let seconds = 0;
     let tens = 0;
 
@@ -211,7 +211,7 @@ export const startGame = (initLevel: string) => {
         }
 
         if (tens > 9) {
-            appendTens.innerHTML = tens;
+            appendTens.innerHTML = "" + tens; // проверить работу счетчика
         }
 
         if (tens > 99) {
@@ -222,7 +222,7 @@ export const startGame = (initLevel: string) => {
         }
 
         if (seconds > 9) {
-            appendSeconds.innerHTML = seconds;
+            appendSeconds.innerHTML = "" + seconds; // проверить работу счетчика
         }
     }
 };
