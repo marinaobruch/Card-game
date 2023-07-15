@@ -1,4 +1,4 @@
-import { createGameMenu } from "./gameMenu.js";
+import { createGameMenu } from "./gameMenu.ts";
 import "./styles.css";
 import * as _ from "lodash";
 

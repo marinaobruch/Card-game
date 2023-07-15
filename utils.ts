@@ -72,5 +72,3 @@ export const createCardsArray = (initLevel: string | Array<number>) => {
             break;
     }
 };
-
-//@ts-ignore

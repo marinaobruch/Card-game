@@ -15,5 +15,10 @@
         "prettier/prettier": "error",
         "camelcase": ["error"],
         "eqeqeq": ["error", "always"]
+    },
+    "settings": {
+        "import/parsers": {
+            "@typescript-eslint/parser": [".ts", ".tsx"]
+        }
     }
 }

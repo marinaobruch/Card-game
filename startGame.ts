@@ -1,6 +1,6 @@
-import { createGameCard } from "./gameCard.js";
-import { createGameMenu } from "./gameMenu.js";
-import { createCardsArray, dublicateArray, shuffle } from "./utils.js";
+import { createGameCard } from "./gameCard.ts";
+import { createGameMenu } from "./gameMenu.ts";
+import { createCardsArray, dublicateArray, shuffle } from "./utils.ts";
 export const headerGame = document.querySelector(".header");
 export const resultContainer = document.querySelector(".res-container");
 export const resultGame = document.querySelector(".result");
@@ -214,7 +214,7 @@ export const startGame = (initLevel: string) => {
         }
 
         if (tens > 9) {
-            appendTens.innerHTML = "" + tens; // проверить работу счетчика
+            appendTens.innerHTML = "" + tens;
         }
 
         if (tens > 99) {
@@ -225,7 +225,7 @@ export const startGame = (initLevel: string) => {
         }
 
         if (seconds > 9) {
-            appendSeconds.innerHTML = "" + seconds; // проверить работу счетчика
+            appendSeconds.innerHTML = "" + seconds;
         }
     }
 };

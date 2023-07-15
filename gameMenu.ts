@@ -4,7 +4,7 @@ import {
     resultGame,
     gameScreen,
     resultContainer,
-} from "./startGame.js";
+} from "./startGame.ts";
 
 const levelPage = document.querySelector(".game-section__container");
 

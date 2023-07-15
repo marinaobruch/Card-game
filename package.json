@@ -16,6 +16,7 @@
     "license": "ISC",
     "devDependencies": {
         "@types/lodash": "^4.14.195",
+        "@typescript-eslint/parser": "^6.0.0",
         "copy-webpack-plugin": "^11.0.0",
         "css-loader": "^6.8.1",
         "css-minimizer-webpack-plugin": "^5.0.1",
