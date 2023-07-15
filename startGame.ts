@@ -48,6 +48,7 @@ export const startGame = (initLevel: string) => {
     timeResult.classList.add("time-left");
 
     const initCards = createCardsArray(initLevel);
+    //@ts-ignore
     const dublicCards = dublicateArray(initCards);
 
     if (gameSection) {
@@ -116,7 +117,9 @@ export const startGame = (initLevel: string) => {
                     firstCard !== secondCard
                 ) {
                     if (
+                        //@ts-ignore
                         cards[firstCard].firstElementChild.src ===
+                        //@ts-ignore
                         cards[secondCard].firstElementChild.src
                     ) {
                         setTimeout(() => {

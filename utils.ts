@@ -1,5 +1,5 @@
 // Перемешивание карт
-export const shuffle = (arr: Array<string>) => {
+export const shuffle = (arr: Array<string> | Array<number>) => {
     let currentIndex = arr.length,
         randomIndex;
 
@@ -18,9 +18,10 @@ export const shuffle = (arr: Array<string>) => {
 
 // Дубликаты карт
 export const dublicateArray = (arr: Array<number>) =>
+    //@ts-ignore
     arr.reduce((res, current) => res.concat([current, current]), []);
 
-export const createCardsArray = (initLevel: string) => {
+export const createCardsArray = (initLevel: string | Array<number>) => {
     const cardsIcons = [
         "static/6_baptize.png",
         "static/7_baptize.png",

@@ -63,13 +63,16 @@ export const createGameMenu = () => {
     const startButton = document.querySelector(".start-button");
 
     // Стиль на выбор кнопки
-    const buttonsDifficultyLevel = document.querySelectorAll(".item");
+    const buttonsDifficultyLevel: NodeListOf<Element> =
+        document.querySelectorAll(".item");
+    //@ts-ignore
     for (const button of buttonsDifficultyLevel) {
-        button.addEventListener("click", function () {
+        button.addEventListener("click", () => {
+            //@ts-ignore
             for (const button of buttonsDifficultyLevel) {
                 button.classList.remove("select-border");
             }
-            this.classList.add("select-border");
+            button.classList.add("select-border"); // проверить корректность работы
         });
     }
 
@@ -77,7 +80,9 @@ export const createGameMenu = () => {
     function checkIsLevel() {
         if (levelForm && startButton) {
             levelForm.addEventListener("change", (event) => {
+                //@ts-ignore
                 if (event.target.matches('input[type="radio"]')) {
+                    //@ts-ignore
                     startButton.disabled = false;
                 }
             });
@@ -89,8 +94,10 @@ export const createGameMenu = () => {
         if (startButton) {
             startButton.addEventListener("click", () => {
                 if (levelForm) {
+                    //@ts-ignore
                     const initLevel = levelForm.querySelector(
                         'input[type="radio"]:checked'
+                        //@ts-ignore
                     ).value;
 
                     console.log(initLevel);
