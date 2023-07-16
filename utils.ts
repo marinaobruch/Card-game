@@ -17,9 +17,11 @@ export const shuffle = (arr: Array<string> | Array<number>) => {
 };
 
 // Дубликаты карт
-export const dublicateArray = (arr: Array<number>) =>
-    //@ts-ignore
-    arr.reduce((res, current) => res.concat([current, current]), []);
+export const dublicateArray = (arr: Array<string>) =>
+    arr.reduce<Array<string>>(
+        (res, current) => res.concat([current, current]),
+        []
+    );
 
 export const createCardsArray = (initLevel: string | Array<number>) => {
     const cardsIcons = [
