@@ -117,7 +117,6 @@ export const startGame = (initLevel: number) => {
                         cards[firstCard].firstElementChild?.outerHTML ===
                         cards[secondCard].firstElementChild?.outerHTML
                     ) {
-                        console.log(cards);
                         setTimeout(() => {
                             if (firstCard && secondCard) {
                                 cards[firstCard].classList.add("successfully");

@@ -87,15 +87,15 @@ export const createGameMenu = () => {
 
     if (startButton) {
         startButton.onclick = () => {
-            const levels =
-                document.querySelectorAll<HTMLInputElement>(
-                    'input[name="item"]'
-                );
-            for (const level of levels) {
-                if (level.checked) {
-                    const initLevel = Number(level.value);
-                    console.log(initLevel);
-                    startGame(initLevel);
+            if (levelForm) {
+                const levels: NodeListOf<HTMLInputElement> =
+                    document.querySelectorAll('input[name="item"]');
+                for (const level of levels) {
+                    if (level.checked) {
+                        const initLevel = Number(level.value);
+                        console.log(initLevel);
+                        startGame(initLevel);
+                    }
                 }
             }
         };
