@@ -6,7 +6,7 @@ export const resultContainer = document.querySelector(".res-container");
 export const resultGame = document.querySelector(".result");
 export const gameScreen = document.querySelector(".common");
 
-export const startGame = (initLevel: string) => {
+export const startGame = (initLevel: number) => {
     let firstCard: null | number = null;
     let secondCard: null | number = null;
     let clickable = true;
@@ -47,9 +47,7 @@ export const startGame = (initLevel: string) => {
     timeResult.textContent = "Затраченное время!";
     timeResult.classList.add("time-left");
 
-    const initCards = createCardsArray(initLevel);
-    //@ts-ignore
-    const dublicCards = dublicateArray(initCards);
+    const dublicCards = createCardsArray(initLevel);
 
     if (gameSection) {
         gameSection.innerHTML = "";
@@ -110,18 +108,16 @@ export const startGame = (initLevel: string) => {
                         clickable = false;
                     }
                 }
-
                 if (
                     firstCard !== null &&
                     secondCard !== null &&
                     firstCard !== secondCard
                 ) {
                     if (
-                        //@ts-ignore
-                        cards[firstCard].firstElementChild.src ===
-                        //@ts-ignore
-                        cards[secondCard].firstElementChild.src
+                        cards[firstCard].firstElementChild?.outerHTML ===
+                        cards[secondCard].firstElementChild?.outerHTML
                     ) {
+                        console.log(cards);
                         setTimeout(() => {
                             if (firstCard && secondCard) {
                                 cards[firstCard].classList.add("successfully");

@@ -7,3 +7,5 @@ const cardsApp = () => {
 };
 
 cardsApp();
+
+//@ts-ignore

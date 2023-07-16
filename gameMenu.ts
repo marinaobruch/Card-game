@@ -28,24 +28,23 @@ export const createGameMenu = () => {
         <form class="common-block center">
             <h1 class="common-text">Выбери сложность</h1>
             <div class="common-options options-form">
-
                 <label for="1">
                     <div class="item">
-                        <input class="input" id="1" name="item" value="1" type="radio">
+                        <input class="input" id="1" name="item" value="6" type="radio">
                         1
                     </div>
                 </label>
 
                 <label for="2">
                     <div class="item">
-                        <input class="input" id="2" name="item" value="2" type="radio">
+                        <input class="input" id="2" name="item" value="12" type="radio">
                         2
                     </div>
                 </label>
 
                 <label for="3">
                     <div class="item">
-                        <input class="input" id="3" name="item" value="3" type="radio">
+                        <input class="input" id="3" name="item" value="18" type="radio">
                         3
                     </div>
                 </label>
@@ -59,30 +58,26 @@ export const createGameMenu = () => {
         levelPage.innerHTML = renderLevelPage;
     }
 
-    const levelForm = document.querySelector(".options-form");
-    const startButton = document.querySelector(".start-button");
+    const levelForm = document.querySelector<HTMLElement>(".options-form");
+    const startButton =
+        document.querySelector<HTMLButtonElement>(".start-button");
 
     // Стиль на выбор кнопки
-    const buttonsDifficultyLevel: NodeListOf<Element> =
-        document.querySelectorAll(".item");
-    //@ts-ignore
+    const buttonsDifficultyLevel = document.querySelectorAll(".item");
     for (const button of buttonsDifficultyLevel) {
         button.addEventListener("click", () => {
-            //@ts-ignore
             for (const button of buttonsDifficultyLevel) {
                 button.classList.remove("select-border");
             }
-            button.classList.add("select-border"); // проверить корректность работы
+            button.classList.add("select-border");
         });
     }
 
     // Выключение кнопки до выбора уровня
     function checkIsLevel() {
         if (levelForm && startButton) {
-            levelForm.addEventListener("change", (event) => {
-                //@ts-ignore
-                if (event.target.matches('input[type="radio"]')) {
-                    //@ts-ignore
+            levelForm.addEventListener("change", () => {
+                if ('input[type="radio"]') {
                     startButton.disabled = false;
                 }
             });
@@ -90,21 +85,19 @@ export const createGameMenu = () => {
     }
     checkIsLevel();
 
-    function choiseLevel() {
-        if (startButton) {
-            startButton.addEventListener("click", () => {
-                if (levelForm) {
-                    //@ts-ignore
-                    const initLevel = levelForm.querySelector(
-                        'input[type="radio"]:checked'
-                        //@ts-ignore
-                    ).value;
-
+    if (startButton) {
+        startButton.onclick = () => {
+            const levels =
+                document.querySelectorAll<HTMLInputElement>(
+                    'input[name="item"]'
+                );
+            for (const level of levels) {
+                if (level.checked) {
+                    const initLevel = Number(level.value);
                     console.log(initLevel);
                     startGame(initLevel);
                 }
-            });
-        }
+            }
+        };
     }
-    choiseLevel();
 };

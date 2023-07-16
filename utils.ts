@@ -1,5 +1,7 @@
+import * as _ from "lodash";
+
 // Перемешивание карт
-export const shuffle = (arr: Array<string> | Array<number>) => {
+export const shuffle = (arr: Array<string>) => {
     let currentIndex = arr.length,
         randomIndex;
 
@@ -23,7 +25,7 @@ export const dublicateArray = (arr: Array<string>) =>
         []
     );
 
-export const createCardsArray = (initLevel: string | Array<number>) => {
+export const createCardsArray = (initLevel: number) => {
     const cardsIcons = [
         "static/6_baptize.png",
         "static/7_baptize.png",
@@ -63,14 +65,19 @@ export const createCardsArray = (initLevel: string | Array<number>) => {
         "static/ace_spades.png",
     ];
 
-    switch (initLevel) {
-        case "1":
-            return shuffle(cardsIcons).slice(0, 3);
-        case "2":
-            return shuffle(cardsIcons).slice(0, 6);
-        case "3":
-            return shuffle(cardsIcons).slice(0, 9);
-        default:
-            break;
-    }
+    const shuffledCards = _.shuffle(cardsIcons);
+    const slicedArray = shuffledCards.slice(0, initLevel / 2);
+    const duplicatedArray = _.concat(slicedArray, slicedArray);
+    return _.shuffle(duplicatedArray);
+
+    // switch (initLevel) {
+    //     case "1":
+    //         return shuffle(cardsIcons).slice(0, 3);
+    //     case "2":
+    //         return shuffle(cardsIcons).slice(0, 6);
+    //     case "3":
+    //         return shuffle(cardsIcons).slice(0, 9);
+    //     default:
+    //         break;
+    // }
 };
