@@ -1,4 +1,7 @@
-export const createGameCard = (defaultIcon, flippedCardIcon) => {
+export const createGameCard = (
+    defaultIcon: object | string,
+    flippedCardIcon: object | string
+) => {
     const card = document.createElement("div");
     card.classList.add("game-card");
 

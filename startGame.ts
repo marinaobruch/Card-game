@@ -1,17 +1,17 @@
-import { createGameCard } from "./gameCard.js";
-import { createGameMenu } from "./gameMenu.js";
-import { createCardsArray, dublicateArray, shuffle } from "./utils.js";
+import { createGameCard } from "./gameCard";
+import { createGameMenu } from "./gameMenu";
+import { createCardsArray, dublicateArray, shuffle } from "./utils";
 export const headerGame = document.querySelector(".header");
 export const resultContainer = document.querySelector(".res-container");
 export const resultGame = document.querySelector(".result");
 export const gameScreen = document.querySelector(".common");
 
-export const startGame = (initLevel) => {
-    let firstCard = null;
-    let secondCard = null;
+export const startGame = (initLevel: number) => {
+    let firstCard: null | number = null;
+    let secondCard: null | number = null;
     let clickable = true;
     let countShowCards = false;
-    let Interval;
+    let Interval: number | any;
     let seconds = 0;
     let tens = 0;
 
@@ -47,23 +47,32 @@ export const startGame = (initLevel) => {
     timeResult.textContent = "Затраченное время!";
     timeResult.classList.add("time-left");
 
-    const initCards = createCardsArray(initLevel);
-    const dublicCards = dublicateArray(initCards);
+    const dublicCards = createCardsArray(initLevel);
 
-    resultGame.innerHTML = "";
-    gameSection.innerHTML = "";
-    headerGame.innerHTML = "";
+    if (gameSection) {
+        gameSection.innerHTML = "";
+    }
+    if (headerGame) {
+        headerGame.innerHTML = "";
+    }
+    if (resultGame) {
+        resultGame.innerHTML = "";
+    }
 
     showCards.classList.remove("disabled");
 
     shuffle(dublicCards);
 
-    dublicCards.forEach((icon) =>
+    dublicCards.forEach((icon: object | string) =>
         gameTable.append(createGameCard("static/back.jpg", icon))
     );
 
-    headerGame.append(timer, restartButton);
-    gameSection.append(gameTable, showCards);
+    if (headerGame) {
+        headerGame.append(timer, restartButton);
+    }
+    if (gameSection) {
+        gameSection.append(gameTable, showCards);
+    }
 
     const cards = document.querySelectorAll(".game-card");
 
@@ -99,19 +108,20 @@ export const startGame = (initLevel) => {
                         clickable = false;
                     }
                 }
-
                 if (
                     firstCard !== null &&
                     secondCard !== null &&
                     firstCard !== secondCard
                 ) {
                     if (
-                        cards[firstCard].firstElementChild.src ===
-                        cards[secondCard].firstElementChild.src
+                        cards[firstCard].firstElementChild?.outerHTML ===
+                        cards[secondCard].firstElementChild?.outerHTML
                     ) {
                         setTimeout(() => {
-                            cards[firstCard].classList.add("successfully");
-                            cards[secondCard].classList.add("successfully");
+                            if (firstCard && secondCard) {
+                                cards[firstCard].classList.add("successfully");
+                                cards[secondCard].classList.add("successfully");
+                            }
 
                             firstCard = null;
                             secondCard = null;
@@ -127,18 +137,23 @@ export const startGame = (initLevel) => {
                             imgResult.setAttribute("src", "static/lose.png");
                             headerResult.textContent = "Вы проиграли!";
                             headerResult.classList.add("win-text");
-
-                            resultGame.classList.add("result");
-                            resultGame.append(
-                                imgResult,
-                                headerResult,
-                                timeResult,
-                                timer,
-                                restartButton
-                            );
-                            resultContainer.classList.add("res-container");
-                            resultContainer.append(resultGame);
-                            gameScreen.classList.add("back-result");
+                            if (resultGame) {
+                                resultGame.classList.add("result");
+                                resultGame.append(
+                                    imgResult,
+                                    headerResult,
+                                    timeResult,
+                                    timer,
+                                    restartButton
+                                );
+                            }
+                            if (resultContainer && resultGame) {
+                                resultContainer.classList.add("res-container");
+                                resultContainer.append(resultGame);
+                            }
+                            if (gameScreen) {
+                                gameScreen.classList.add("back-result");
+                            }
                         }, 500);
 
                         // Это логика, если дальше можно продолжать игру (свернуто)
@@ -164,17 +179,23 @@ export const startGame = (initLevel) => {
                     appendTens.classList.add("timer-res");
                     dot.classList.add("timer-res");
 
-                    resultGame.classList.add("result");
-                    resultGame.append(
-                        imgResult,
-                        headerResult,
-                        timeResult,
-                        timer,
-                        restartButton
-                    );
-                    resultContainer.classList.add("res-container");
-                    resultContainer.append(resultGame);
-                    gameScreen.classList.add("back-result");
+                    if (resultGame) {
+                        resultGame.classList.add("result");
+                        resultGame.append(
+                            imgResult,
+                            headerResult,
+                            timeResult,
+                            timer,
+                            restartButton
+                        );
+                    }
+                    if (resultContainer && resultGame) {
+                        resultContainer.classList.add("res-container");
+                        resultContainer.append(resultGame);
+                    }
+                    if (gameScreen) {
+                        gameScreen.classList.add("back-result");
+                    }
                 }, 500);
             }
         })
@@ -188,7 +209,7 @@ export const startGame = (initLevel) => {
         }
 
         if (tens > 9) {
-            appendTens.innerHTML = tens;
+            appendTens.innerHTML = "" + tens;
         }
 
         if (tens > 99) {
@@ -199,7 +220,7 @@ export const startGame = (initLevel) => {
         }
 
         if (seconds > 9) {
-            appendSeconds.innerHTML = seconds;
+            appendSeconds.innerHTML = "" + seconds;
         }
     }
 };
