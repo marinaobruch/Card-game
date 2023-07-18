@@ -81,3 +81,5 @@ export const createCardsArray = (initLevel: number) => {
     //         break;
     // }
 };
+
+module.exports = { dublicateArray, createCardsArray };
