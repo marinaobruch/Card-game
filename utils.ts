@@ -82,4 +82,4 @@ export const createCardsArray = (initLevel: number) => {
     // }
 };
 
-module.exports = { dublicateArray, createCardsArray };
+module.exports = { createCardsArray, shuffle };
