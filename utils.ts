@@ -18,7 +18,7 @@ export const shuffle = (arr: Array<string>) => {
     return arr;
 };
 
-// Дубликаты карт
+// Дубликаты
 export const dublicateArray = (arr: Array<string>) =>
     arr.reduce<Array<string>>(
         (res, current) => res.concat([current, current]),
