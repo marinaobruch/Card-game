@@ -69,17 +69,4 @@ export const createCardsArray = (initLevel: number) => {
     const slicedArray = shuffledCards.slice(0, initLevel / 2);
     const duplicatedArray = _.concat(slicedArray, slicedArray);
     return _.shuffle(duplicatedArray);
-
-    // switch (initLevel) {
-    //     case "1":
-    //         return shuffle(cardsIcons).slice(0, 3);
-    //     case "2":
-    //         return shuffle(cardsIcons).slice(0, 6);
-    //     case "3":
-    //         return shuffle(cardsIcons).slice(0, 9);
-    //     default:
-    //         break;
-    // }
 };
-
-module.exports = { createCardsArray, shuffle };
