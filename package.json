@@ -10,7 +10,7 @@
         "lint:css": "stylelint **.css",
         "build": "NODE_ENV=production webpack",
         "start": "webpack-dev-server --open",
-        "lint:ts": "eslint .",
+        "lint:ts": "eslint . --ext .ts",
         "prepare": "husky install"
     },
     "author": "",
