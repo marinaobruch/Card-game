@@ -1,6 +1,6 @@
 import { createGameCard } from "./gameCard";
 import { createGameMenu } from "./gameMenu";
-import { createCardsArray, dublicateArray, shuffle } from "./utils";
+import { createCardsArray, shuffle } from "./utils";
 export const headerGame = document.querySelector(".header");
 export const resultContainer = document.querySelector(".res-container");
 export const resultGame = document.querySelector(".result");

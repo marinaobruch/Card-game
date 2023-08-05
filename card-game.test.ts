@@ -10,6 +10,6 @@ it("should create different arrays because of random function", () => {
 
 it("should create different array that contain the same objects", () => {
     const someArray = ["one", "two", "three", "four", "five"];
-    const received = someArray;
+    const received = shuffle(someArray);
     expect(received).toContain("one", "two", "three", "four", "five");
 });
