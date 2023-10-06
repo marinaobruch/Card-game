@@ -1,7 +1,35 @@
 # Card-game
-Карточная игра для тренировки памяти
+Card game for memory training / Карточная игра для тренировки памяти
+
+# Stack
+HTML, CSS, JavaScript, TypeScript
+Code Linting, Webpack (install, configure), Plugins
 
 # Правила
+
+1. In the start window you need to select the difficulty level:
+
+1 - 6 cards;
+
+2 - 12 cards;
+
+3 - 18 cards;
+
+Next you will find yourself on a field with cards turned face down (invisible side) up
+
+2. To view maps, click the "Show maps" button.
+Cards will be visible for 5 seconds, after which they will be flipped over
+
+3. Then you can start the game, the timer will start
+
+The goal of the game is to find all the pairs as quickly as possible without making a mistake.
+The main rule of the game: if you make a mistake (connecting different cards), the game ends.
+You will be taken to the start window and can select the difficulty level and go through the game again
+
+Good luck!
+
+/ 
+
 1. В стартовом окне необходимо выбрать уровень сложности:
 
 1 - 6 карт; 
