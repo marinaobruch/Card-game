@@ -3,9 +3,10 @@ Card game for memory training / Карточная игра для тренир�
 
 # Stack
 HTML, CSS, JavaScript, TypeScript
+
 Code Linting, Webpack (install, configure), Plugins
 
-# Правила
+# Rules / Правила
 
 1. In the start window you need to select the difficulty level:
 
