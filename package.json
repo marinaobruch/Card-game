@@ -1,6 +1,7 @@
 {
     "name": "card-game",
     "version": "1.0.0",
+    "homepage": "https://marinaobruch.github.io/Card-game/",
     "description": "",
     "main": "script.js",
     "scripts": {
@@ -11,8 +12,7 @@
         "build": "NODE_ENV=production webpack",
         "start": "webpack-dev-server --open",
         "lint:ts": "eslint . --ext .ts",
-        "prepare": "husky install",
-        "deploy": "npm run build && gh-pages -d dist"
+        "prepare": "husky install"
     },
     "author": "",
     "license": "ISC",
